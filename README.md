@@ -69,3 +69,11 @@ AI-Vision-QA/
 ├── requirements.txt
 │
 └── README.md
+
+### GitHub repository details
+
+For the **Create a new repository** page you showed earlier, I would use:
+
+**Repository name**
+```text
+AI-Vision-QA
