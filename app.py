@@ -27,33 +27,54 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Custom Ultra-Modern Glassmorphism & Cyber Aesthetics
+# Custom High-Contrast Modern Cyber-Dark Aesthetics
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-    /* Global typography and background */
-    html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Global typography */
+    html, body, [class*="css"], .stApp {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        background: radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+                    radial-gradient(circle at 90% 90%, rgba(236, 72, 153, 0.08) 0%, transparent 45%),
+                    #0A0E1A !important;
+        color: #F8FAFC !important;
     }
 
-    .stApp {
-        background: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
-                    radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.06) 0%, transparent 40%),
-                    #090D16;
-        color: #F1F5F9;
+    /* CRITICAL HIGH CONTRAST TYPOGRAPHY OVERRIDES */
+    label, [data-testid="stWidgetLabel"], .stWidgetLabel, .stWidgetLabel p, .stWidgetLabel span {
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    p, span, div {
+        color: #E2E8F0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+
+    /* Radio button options - crisp white */
+    .stRadio label, [data-testid="stRadio"] label, [data-testid="stRadio"] span, [data-testid="stRadio"] p {
+        color: #F1F5F9 !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
     }
 
     /* Hero Banner */
     .omni-hero {
         position: relative;
-        padding: 2.25rem 2.5rem;
+        padding: 2.2rem 2.5rem;
         border-radius: 1.5rem;
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        background: linear-gradient(135deg, rgba(26, 34, 56, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         margin-bottom: 2rem;
         overflow: hidden;
     }
@@ -67,25 +88,25 @@ st.markdown(
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.75rem;
     }
     .hero-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
-        padding: 0.3rem 0.85rem;
+        gap: 0.45rem;
+        padding: 0.35rem 0.9rem;
         border-radius: 9999px;
-        background: rgba(99, 102, 241, 0.15);
-        border: 1px solid rgba(99, 102, 241, 0.35);
-        color: #A5B4FC;
+        background: rgba(99, 102, 241, 0.2);
+        border: 1px solid rgba(99, 102, 241, 0.5);
+        color: #C7D2FE !important;
         font-size: 0.82rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
+        font-weight: 700;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
     }
     .pulse-dot {
-        width: 7px;
-        height: 7px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background-color: #10B981;
         box-shadow: 0 0 10px #10B981;
@@ -101,43 +122,93 @@ st.markdown(
         font-weight: 800;
         line-height: 1.15;
         margin: 0;
-        background: linear-gradient(135deg, #FFFFFF 30%, #CBD5E1 70%, #94A3B8 100%);
+        color: #FFFFFF !important;
+        background: linear-gradient(135deg, #FFFFFF 40%, #E2E8F0 80%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     .hero-subtitle {
-        color: #94A3B8;
+        color: #CBD5E1 !important;
         font-size: 1.05rem;
         margin-top: 0.6rem;
-        max-width: 780px;
-        line-height: 1.5;
+        max-width: 800px;
+        line-height: 1.55;
     }
 
-    /* Cards */
+    /* Glass Cards */
     .glass-card {
-        padding: 1.5rem;
-        border-radius: 1.25rem;
-        background: rgba(18, 24, 41, 0.7);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        padding: 1.6rem;
+        border-radius: 1.35rem;
+        background: rgba(20, 27, 45, 0.85);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
         margin-bottom: 1.25rem;
-        transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .glass-card:hover {
-        border-color: rgba(99, 102, 241, 0.3);
     }
     .card-heading {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         font-weight: 700;
-        color: #F8FAFC;
-        margin-bottom: 1rem;
+        color: #FFFFFF !important;
+        margin-bottom: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
     }
 
-    /* Metric cards */
+    /* File Uploader Customization - Clean dark dropzone */
+    [data-testid="stFileUploader"] {
+        margin-bottom: 1rem;
+    }
+    [data-testid="stFileUploaderDropzone"] {
+        background-color: rgba(15, 23, 42, 0.8) !important;
+        border: 1.5px dashed rgba(99, 102, 241, 0.45) !important;
+        border-radius: 1rem !important;
+        padding: 1.5rem !important;
+    }
+    [data-testid="stFileUploaderDropzone"]:hover {
+        border-color: #818CF8 !important;
+        background-color: rgba(30, 41, 59, 0.9) !important;
+    }
+    [data-testid="stFileUploaderDropzone"] span, [data-testid="stFileUploaderDropzone"] small, [data-testid="stFileUploaderDropzone"] div {
+        color: #CBD5E1 !important;
+    }
+    [data-testid="stFileUploaderDropzone"] button {
+        background: rgba(99, 102, 241, 0.25) !important;
+        color: #FFFFFF !important;
+        border: 1px solid rgba(99, 102, 241, 0.6) !important;
+        font-weight: 600 !important;
+    }
+
+    /* Text Inputs */
+    .stTextInput input, .stTextArea textarea {
+        background-color: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        border-radius: 0.85rem !important;
+        color: #FFFFFF !important;
+        font-size: 0.95rem !important;
+        padding: 0.75rem 1rem !important;
+    }
+    .stTextInput input:focus, .stTextArea textarea:focus {
+        border-color: #818CF8 !important;
+        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35) !important;
+    }
+
+    /* Alert / Info Boxes - High Contrast */
+    .stAlert, [data-testid="stAlert"] {
+        background: rgba(15, 23, 42, 0.95) !important;
+        border: 1px solid rgba(99, 102, 241, 0.4) !important;
+        border-radius: 1rem !important;
+        padding: 1rem 1.25rem !important;
+    }
+    .stAlert p, [data-testid="stAlert"] p {
+        color: #F8FAFC !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* Metric Stat Pills */
     .metric-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -147,91 +218,125 @@ st.markdown(
     .stat-pill {
         padding: 1rem 1.25rem;
         border-radius: 1rem;
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(10px);
+        background: rgba(30, 41, 59, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
     }
     .stat-label {
-        color: #94A3B8;
+        color: #94A3B8 !important;
         font-size: 0.8rem;
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 700;
         letter-spacing: 0.05em;
     }
     .stat-value {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         font-weight: 800;
-        color: #FFFFFF;
+        color: #FFFFFF !important;
         margin-top: 0.25rem;
     }
 
-    /* Answer box */
+    /* Answer Banner */
     .answer-banner {
-        padding: 1.4rem 1.6rem;
+        padding: 1.5rem 1.75rem;
         border-radius: 1.25rem;
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%);
-        border: 1px solid rgba(16, 185, 129, 0.35);
-        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.1);
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.45);
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
         margin-bottom: 1.25rem;
     }
     .answer-tag {
-        font-size: 0.8rem;
-        font-weight: 700;
+        font-size: 0.82rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #34D399;
-        margin-bottom: 0.3rem;
+        letter-spacing: 0.06em;
+        color: #34D399 !important;
+        margin-bottom: 0.35rem;
     }
     .answer-text {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
         font-weight: 800;
-        color: #FFFFFF;
-        line-height: 1.2;
+        color: #FFFFFF !important;
+        line-height: 1.25;
     }
 
-    /* Button Customization */
-    div.stButton > button:first-child {
-        background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%);
-        color: white;
-        font-weight: 700;
-        font-size: 1.05rem;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.85rem;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
-        transition: all 0.25s ease;
-    }
-    div.stButton > button:first-child:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px rgba(99, 102, 241, 0.5);
-        border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Input customizations */
-    .stTextInput input, .stTextArea textarea {
-        background-color: rgba(15, 23, 42, 0.6) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    /* Suggestion Chips */
+    .chip-container div[data-testid="column"] button {
+        background: rgba(30, 41, 59, 0.85) !important;
+        color: #F1F5F9 !important;
+        font-weight: 600 !important;
+        font-size: 0.88rem !important;
         border-radius: 0.75rem !important;
-        color: #F8FAFC !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        padding: 0.5rem 0.75rem !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
     }
-    .stTextInput input:focus, .stTextArea textarea:focus {
-        border-color: #6366F1 !important;
-        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25) !important;
+    .chip-container div[data-testid="column"] button:hover {
+        background: rgba(99, 102, 241, 0.3) !important;
+        border-color: #818CF8 !important;
+        color: #FFFFFF !important;
+        transform: translateY(-1px) !important;
     }
 
-    /* Info chips */
+    /* Main CTA button */
+    .main-cta-wrap div.stButton > button {
+        background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%) !important;
+        color: #FFFFFF !important;
+        font-weight: 800 !important;
+        font-size: 1.05rem !important;
+        padding: 0.85rem 1.75rem !important;
+        border-radius: 0.85rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.45) !important;
+        width: 100% !important;
+        transition: all 0.25s ease !important;
+    }
+    .main-cta-wrap div.stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 15px 35px rgba(99, 102, 241, 0.65) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    /* Meta tags */
     .query-meta-chip {
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
-        padding: 0.35rem 0.75rem;
-        border-radius: 0.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.4rem 0.85rem;
+        border-radius: 0.6rem;
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 0.85rem;
-        color: #CBD5E1;
+        color: #E2E8F0 !important;
         margin-right: 0.5rem;
         margin-top: 0.4rem;
+    }
+    .query-meta-chip strong {
+        color: #FFFFFF !important;
+    }
+
+    /* Expander header */
+    .streamlit-expanderHeader {
+        background-color: rgba(30, 41, 59, 0.5) !important;
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        border-radius: 0.75rem !important;
+    }
+
+    /* Tabs styling */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 0.5rem;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: rgba(30, 41, 59, 0.4) !important;
+        border-radius: 0.6rem 0.6rem 0 0 !important;
+        color: #CBD5E1 !important;
+        padding: 0.5rem 1rem !important;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: rgba(99, 102, 241, 0.25) !important;
+        color: #FFFFFF !important;
+        border-bottom: 2px solid #818CF8 !important;
     }
     </style>
     """,
@@ -250,7 +355,7 @@ def get_blip_model() -> BlipVQAModel:
 
 
 @st.cache_resource(show_spinner=False)
-def get_detector(version: str = "v5_omnisight") -> ObjectDetector:
+def get_detector(version: str = "v6_accurate_contrast") -> ObjectDetector:
     import importlib
     import model.object_detector
     importlib.reload(model.object_detector)
@@ -340,7 +445,8 @@ def main() -> None:
         )
 
         # Quick Suggestion Chips
-        st.caption("💡 Quick Question Suggestions (click to populate):")
+        st.markdown("<p style='font-size: 0.9rem; font-weight: 600; color: #CBD5E1; margin-bottom: 0.4rem;'>💡 Quick Suggestion Chips (click to fill question):</p>", unsafe_allow_html=True)
+        st.markdown('<div class="chip-container">', unsafe_allow_html=True)
         chip_cols = st.columns(3)
         with chip_cols[0]:
             if st.button("🏔️ Mountain?", use_container_width=True):
@@ -351,6 +457,7 @@ def main() -> None:
         with chip_cols[2]:
             if st.button("🐆 Wildlife?", use_container_width=True):
                 st.session_state["preset_q"] = "is there any leopard or animal in this image ?"
+        st.markdown('</div>', unsafe_allow_html=True)
 
         default_question = st.session_state.get("preset_q", "")
         question = st.text_input(
@@ -391,7 +498,9 @@ def main() -> None:
                 disabled=is_blip,
             )
 
+        st.markdown('<div class="main-cta-wrap">', unsafe_allow_html=True)
         run = st.button("🚀 Analyze & Ground Objects", type="primary", use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
     with col_right:
@@ -520,7 +629,7 @@ def main() -> None:
             "no", "no.", "none", "nothing", "false", "there is no", "not visible", "not present", "zero"
         } or final_answer_text.strip().lower().startswith("no,") or final_answer_text.strip().lower().startswith("no ")
 
-        detector_inst = get_detector(version="v5_omnisight")
+        detector_inst = get_detector(version="v6_accurate_contrast")
         target_obj = detector_inst.extract_target_from_question(question)
 
         tab_spotlight, tab_original, tab_details = st.tabs(["🎯 Object Spotlight", "🖼️ Original Image", "📊 Deep Reasoning"])
@@ -566,7 +675,7 @@ def main() -> None:
             if explanation:
                 st.caption(f"**Reasoning Strategy**: {explanation}")
 
-            st.markdown("**Ranked Candidate Probabilities:**")
+            st.markdown("<p style='font-weight:700; color:#FFFFFF;'>Ranked Candidate Probabilities:</p>", unsafe_allow_html=True)
             for item in ranked_display:
                 score_pct = item['score'] * 100
                 st.markdown(f"- **{item['answer']}** — `{score_pct:.1f}%`")
