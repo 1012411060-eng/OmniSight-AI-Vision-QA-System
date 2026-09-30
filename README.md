@@ -1,6 +1,6 @@
-# AI-Based Vision Question Answering System
+# OmniSight AI Vision Question Answering System
 
-An AI-based Vision Question Answering (VQA) system developed using Python and computer vision techniques. The application allows users to upload an image and ask questions about the visual content. It uses vision-language models such as CLIP and BLIP to generate and evaluate answers.
+An OmniSight AI-based Vision Question Answering (VQA) system developed using Python and computer vision techniques. The application allows users to upload an image and ask questions about the visual content. It uses vision-language models such as CLIP and BLIP to generate and evaluate answers.
 
 ## Project Overview
 
@@ -70,10 +70,3 @@ AI-Vision-QA/
 │
 └── README.md
 
-### GitHub repository details
-
-For the **Create a new repository** page you showed earlier, I would use:
-
-**Repository name**
-```text
-AI-Vision-QA
