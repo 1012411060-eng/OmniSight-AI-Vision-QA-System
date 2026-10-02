@@ -355,7 +355,7 @@ def get_blip_model() -> BlipVQAModel:
 
 
 @st.cache_resource(show_spinner=False)
-def get_detector(version: str = "v6_accurate_contrast") -> ObjectDetector:
+def get_detector(version: str = "v8_perfect_grounding") -> ObjectDetector:
     import importlib
     import model.object_detector
     importlib.reload(model.object_detector)
@@ -629,8 +629,8 @@ def main() -> None:
             "no", "no.", "none", "nothing", "false", "there is no", "not visible", "not present", "zero"
         } or final_answer_text.strip().lower().startswith("no,") or final_answer_text.strip().lower().startswith("no ")
 
-        detector_inst = get_detector(version="v6_accurate_contrast")
-        target_obj = detector_inst.extract_target_from_question(question)
+        detector_inst = get_detector(version="v8_perfect_grounding")
+        target_obj = detector_inst.extract_target_from_question(question, answer=final_answer_text)
 
         tab_spotlight, tab_original, tab_details = st.tabs(["🎯 Object Spotlight", "🖼️ Original Image", "📊 Deep Reasoning"])
 
@@ -652,7 +652,7 @@ def main() -> None:
 
                     clip_inst = get_clip_model("torch")
                     marked_img, detections, target_obj = detector_inst.locate_and_mark(
-                        image, question, clip_model=clip_inst
+                        image, question, clip_model=clip_inst, answer=final_answer_text
                     )
 
                 if marked_img is not None and detections:
